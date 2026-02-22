@@ -30,9 +30,11 @@ function Register() {
       data.append("password", formData.password);
       data.append("avatar", avatar);
       if (coverImage) data.append("coverImage", coverImage);
-      await axios.post("http://localhost:8000/api/v1/users/register", data, {
-        withCredentials: true,
-      });
+      await axios.post(
+        "https://youtube-clone-backend-ozwt.vercel.app/api/v1/users/register",
+        data,
+        { withCredentials: true },
+      );
       navigate("/");
     } catch (error) {
       setError(error.response?.data?.message || "Something went wrong!");

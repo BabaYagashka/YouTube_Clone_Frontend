@@ -1,11 +1,10 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:8000/api/v1",
+  baseURL: "https://youtube-clone-backend-ozwt.vercel.app/api/v1",
   withCredentials: true,
 });
 
-// request interceptor - attach access token to every request
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("accessToken");
@@ -17,7 +16,6 @@ axiosInstance.interceptors.request.use(
   (error) => Promise.reject(error),
 );
 
-// response interceptor - refresh token if access token expires
 axiosInstance.interceptors.response.use(
   (response) => response,
   async (error) => {
@@ -26,7 +24,7 @@ axiosInstance.interceptors.response.use(
       originalRequest._retry = true;
       try {
         const response = await axios.post(
-          "http://localhost:8000/api/v1/users/refresh-token",
+          "https://youtube-clone-backend-ozwt.vercel.app/api/v1/users/refresh-token",
           {},
           { withCredentials: true },
         );
@@ -36,7 +34,6 @@ axiosInstance.interceptors.response.use(
         return axiosInstance(originalRequest);
       } catch (error) {
         localStorage.removeItem("accessToken");
-        window.location.href = "/login";
       }
     }
     return Promise.reject(error);
