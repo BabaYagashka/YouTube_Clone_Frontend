@@ -62,7 +62,7 @@ function Home() {
             />
             <div>
               <h2 className="font-display text-2xl font-bold text-gray-900">
-                {getGreeting()}, {user?.fullname?.split(" ")[0]}! 
+                {getGreeting()}, {user?.fullname?.split(" ")[0]}!
               </h2>
               <p className="text-gray-500 text-sm mt-0.5">
                 What are you watching today?
@@ -90,7 +90,7 @@ function Home() {
           <div className="mb-8 bg-white rounded-2xl p-6 flex items-center justify-between border border-gray-100 shadow-sm">
             <div>
               <h2 className="font-display text-2xl font-bold text-gray-900">
-                Welcome to VideoTube 🎬
+                Welcome to VideoTube!
               </h2>
               <p className="text-gray-500 text-sm mt-1">
                 Sign in to like, comment, subscribe and upload videos
