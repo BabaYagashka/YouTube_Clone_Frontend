@@ -18,7 +18,7 @@ function Navbar() {
       console.log(error);
     } finally {
       dispatch(logout());
-      navigate("/login");
+      navigate("/");
     }
   };
 
